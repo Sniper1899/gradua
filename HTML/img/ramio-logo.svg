@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 183.42188 28.52734">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: RosemarineCaligrahic-Regular, RosemarineCaligrahic;
+        font-size: 27.37685px;
+      }
+
+      .cls-2 {
+        letter-spacing: .00298em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.04901em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.00799em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.06em;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(-.00024 23.32495)"><tspan x="0" y="0">MI </tspan><tspan class="cls-4" x="35.83545" y="0">G</tspan><tspan class="cls-2" x="53.11035" y="0">R</tspan><tspan x="68.00244" y="0">AD</tspan><tspan class="cls-3" x="100.36182" y="0">U</tspan><tspan class="cls-5" x="114.92627" y="0">A</tspan><tspan x="129.65479" y="0">CIÓN</tspan></text>
+</svg>

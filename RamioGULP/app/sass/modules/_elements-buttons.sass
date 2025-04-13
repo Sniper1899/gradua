@@ -1,0 +1,103 @@
+.button
+  position: relative
+  display: inline-block
+  margin: 0
+  padding: 0
+  border: none
+  outline: none
+  box-shadow: none
+  border-radius: 0
+  font: inherit
+  background-color: transparent
+  cursor: pointer
+  text-decoration: none
+  user-select: none
+  overflow: hidden
+  vertical-align: baseline
+  transition: padding .5s cubic-bezier(0.26, 0.82, 0.76, 1.06)
+  &:focus,
+  &:active
+    outline: none
+    box-shadow: none
+  &::before,
+  &::after
+    content: ""
+    display: block
+    position: absolute
+    top: 50%
+  &::before
+    left: -100%
+    transition: left .6s
+  &::after
+    right: 0
+    transition: right .6s
+  .no-touch &:hover
+    &::before
+      left: 0
+    &::after
+      right: -100%
+
+.button-l
+  height: 52px
+  line-height: 50px
+  padding: 0 5.6rem 0 2.4rem
+  font-size: 1.4rem
+  font-weight: 700
+  &::before,
+  &::after
+    width: 4rem
+    height: 2px
+  .no-touch &:hover
+    padding: 0 2.4rem 0 5.6rem
+  +MQ(XL)
+    font-size: 1.4rem
+    padding: 0 6rem 0 2.4rem
+    &::before,
+    &::after
+      width: 4rem
+    .no-touch &:hover
+      padding: 0 2.4rem 0 6rem
+
+.button-dark-outline
+  border: 2px solid $txt-dark
+  color: $txt-dark
+  &::before,
+  &::after
+    background-color: $txt-dark
+  .no-touch &:hover
+    color: $txt-dark
+
+.button-light
+  color: $txt-dark
+  background-color: $bsc-white
+  &::before,
+  &::after
+    background-color: $txt-dark
+
+.button-light-outline
+  background-color: transparent
+  border: 1px solid rgba($bsc-white, .6)
+  color: $txt-white
+  &::before,
+  &::after
+    background-color: rgba($bsc-white, .6)
+
+.section-close
+  position: relative
+  display: inline-block
+  width: 5rem
+  height: 5rem
+  line-height: 5.4rem
+  font-size: 2.6rem
+  color: $txt-dark
+  text-align: center
+  border: 2px solid $txt-dark
+  .material-icons
+    font-size: 2.6rem
+  &.light
+    color: rgba($txt-white, .6)
+    border: 2px solid rgba($txt-white, .3)
+  .no-touch &:hover
+    color: $txt-dark
+    &.light
+      color: rgba($txt-white, .6)

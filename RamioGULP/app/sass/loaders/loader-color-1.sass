@@ -1,0 +1,142 @@
+/*! ------------------------------------------------
+   Project Name: Ramio - Clean Coming Soon and Landing Page Template
+   Project Description: Ramio - awesome coming soon template to kick-start your project
+   Tags: Ramio, coming soon, under construction, template, coming soon page, html5, css3
+   Version: 2.0.3
+   Build Date: April 2018
+   Last Update: December 2024
+   This product is available exclusively on Themeforest
+   Author: mix_design
+   Author URI: https://themeforest.net/user/mix_design
+   File name: loader-clor-1.css
+   ------------------------------------------------
+
+   ------------------------------------------------
+   Table of Contents
+   ------------------------------------------------
+    1. Loader Styles
+   ------------------------------------------------
+   Table of Contents End
+   ------------------------------------------------ */
+
+// Import Bourbon
+@import "bourbon"
+
+// Import Mixins and Common Variables
+@import "../partials/layout"
+@import "../partials/mixins"
+@import "../partials/variables"
+
+// Main Colors
+$base-color: #4d3a8f
+$accent-color: #40e1e8
+$white: #ffffff
+
+/* Loader Styles */
+.loader
+  +position(fixed, 0 0 0 0)
+  z-index: 1000
+  background-color: $base-color
+  opacity: 1
+  visibility: visible
+  transition: visibility $animation-duration - .4s .0s, opacity $animation-duration - .4s, background-color $animation-duration - .2s ease-in-out
+
+  &.loaded
+    opacity: 0
+    visibility: hidden
+
+.loader-content
+  position: absolute
+  +center
+
+.loader-logo
+  position: relative
+  display: block
+  //width: 8.8rem
+  //height: 8.8rem
+  margin: 0 auto 16px
+  overflow: hidden
+  img
+    display: block
+    width: auto
+    height: auto
+    z-index: 0
+
+.loader-caption
+  margin: 0 auto
+  text-align: center
+
+.loading-dots
+  position: relative
+  line-height: 1
+  display: inline-block
+  width: 36px
+  height: 10px
+  text-align: center
+  +clearfix
+  overflow: hidden
+
+  .dot
+    display: block
+    float: left
+    width: 6px
+    height: 6px
+    margin: 2px 3px 0 3px
+    background: $accent-color
+    opacity: 0
+    border-radius: 50%
+    animation: fade 1s infinite
+    &:nth-of-type(1)
+      animation-delay: 0s
+    &:nth-of-type(2)
+      animation-delay: .1s
+    &:nth-of-type(3)
+      animation-delay: .2s
+
+@keyframes fade
+  0%
+    opacity: 0
+  50%
+    opacity: 0.8
+  100%
+    opacity: 0
+
+@keyframes slideInDown
+  from
+    transform: translate3d(0, -100%, 0)
+    visibility: visible
+  to
+    transform: translate3d(0, 0, 0)
+
+.slideInDown
+  animation: $animation-duration - .2s 1 both slideInDown
+
+@keyframes slideInUp
+  from
+    transform: translate3d(0, 100%, 0)
+    visibility: visible
+  to
+    transform: translate3d(0, 0, 0)
+
+.slideInUp
+  animation: $animation-duration - .2s 1 both slideInUp
+
+@keyframes fadeOutUp
+  from
+    opacity: 1
+  to
+    opacity: 0
+    transform: translate3d(0, -100%, 0)
+
+.fadeOutUp
+  animation: $animation-duration - .2s 1 both fadeOutUp
+
+@keyframes fadeOutDown
+  from
+    opacity: 1
+  to
+    opacity: 0
+    transform: translate3d(0, 100%, 0)
+
+.fadeOutDown
+  animation: $animation-duration - .2s 1 both fadeOutDown

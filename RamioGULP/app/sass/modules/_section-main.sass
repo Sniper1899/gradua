@@ -1,0 +1,155 @@
+.main
+  position: relative
+  background-color: shade($bsc-grey-dark, 40%)
+  opacity: 1
+  transform: translateZ(0)
+  transform: scale(1)
+  transition: opacity $animation-duration - .4s
+  &.is-hidden
+    .main__intro
+      transform: translateY(0)
+    .main__media
+      transform: translateY(0)
+  &.notify-is-visible
+    .main__intro
+      transform: translateY(0)
+  +MQ(XL)
+    height: 100%
+    min-height: 546px
+    overflow: hidden
+    z-index: 8
+    transition: transform $animation-duration - .4s, opacity $animation-duration - .4s
+    &.is-hidden
+      .main__intro
+        transform: translateY(100%)
+      .main__media
+        transform: translateY(-100%)
+    &.notify-is-visible
+      .main__intro
+        transform: translateY(-100%)
+
+.main__intro
+  position: relative
+  height: auto
+  min-height: 480px
+  padding: 0
+  background-color: shade($bsc-grey-dark, 40%)
+  overflow: hidden
+  transform: translateY(0)
+  transition: transform $animation-duration - .2s ease-in-out
+  &::before
+    content: ""
+    display: block
+    +position(absolute, 0 null null 0)
+    width: 100%
+    height: 100%
+    background-color: shade($bsc-grey-dark, 60%)
+    transform: translateX(-102%)
+    transition: transform $animation-duration - .5s ease-in-out
+    z-index: 1
+  +MQ(L)
+    height: 100vh
+    padding: 0
+  +MQ(XL)
+    height: 100%
+    min-height: 546px
+  +MQ(XXL)
+    min-height: 654px
+
+.intro__content
+  position: relative
+  min-height: 480px
+  padding: 180px 0
+  background-color: $bsc-white
+  +MQ(L)
+    height: 100vh
+    padding: 0
+  +MQ(XL)
+    height: 100%
+    min-height: 546px
+  +MQ(XXL)
+    min-height: 654px
+
+.intro__logo
+  +position(absolute, 4rem null null 10%)
+  z-index: 1
+  img
+    width: auto
+    height: auto
+  +MQ(XL)
+    +position(absolute, 4rem nul null 6.4rem)
+  +MQ(XXL)
+    +position(absolute, 4.8rem nul null 8rem)
+
+.intro__menu
+  display: none
+  +MQ(XL)
+    display: block
+    +position(absolute, 4rem 6.4rem null null)
+  +MQ(XXL)
+    +position(absolute, 4.8rem 8rem null null)
+
+.intro__socials
+  +position(absolute, null null 4rem 10%)
+  +MQ(XL)
+    +position(absolute, null auto 4rem 6.4rem)
+  +MQ(XXL)
+    +position(absolute, null auto 4.8rem 8rem)
+
+.intro__headline
+  position: relative
+  width: 100%
+  padding: 0 10%
+  +MQ(L)
+    position: absolute
+    left: 0
+    +center(y)
+  +MQ(XL)
+    padding: 0 6.4rem
+  +MQ(XXL)
+    padding: 0 8rem
+
+.main__media
+  position: relative
+  height: 600px
+  overflow: hidden
+  transform: translateY(0)
+  transition: transform $animation-duration - .2s ease-in-out
+  &::before
+    content: ""
+    display: block
+    +position(absolute, 0 null null 0)
+    width: 100%
+    height: 100%
+    background-color: shade($bsc-grey-dark, 60%)
+    transform: translateX(-102%)
+    transition: transform $animation-duration - .5s ease-in-out
+    z-index: 1
+  +MQ(M)
+    height: 760px
+  +MQ(XL)
+    height: 100%
+    min-height: 546px
+  +MQ(XXL)
+    min-height: 654px
+
+.media__image
+  +position(absolute, 0 null null 0)
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: top center
+  background-size: cover
+  &.centered-bg
+    background-position: center center
+
+.media__countdown
+  +position(absolute, null 10% 4rem null)
+  opacity: 1
+  transition: opacity 1s ease-in-out
+  z-index: 1
+  text-align: right
+  +MQ(XL)
+    +position(absolute, auto 6.4rem 4rem auto)
+  +MQ(XXL)
+    +position(absolute, null 8rem 4.8rem auto)

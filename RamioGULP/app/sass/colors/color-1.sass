@@ -1,0 +1,480 @@
+/*! ------------------------------------------------
+   Project Name: Ramio - Clean Coming Soon and Landing Page Template
+   Project Description: Ramio - awesome coming soon template to kick-start your project
+   Tags: Ramio, coming soon, under construction, template, coming soon page, html5, css3
+   Version: 2.0.3
+   Build Date: April 2018
+   Last Update: December 2024
+   This product is available exclusively on Themeforest
+   Author: mix_design
+   Author URI: https://themeforest.net/user/mix_design
+   File name: color-1.css
+   ------------------------------------------------
+
+   ------------------------------------------------
+   Table of Contents
+   ------------------------------------------------
+    3. Base Colors
+    6. Typography
+    7. Buttons & Triggers
+    8. Forms and Form Reply Groups
+    9. Main Section
+    10. Menu
+    11. Socials
+    12. Countdown
+    13. Content Sections
+    14. Custom Scroll
+    17. Blockquote
+    18. Team
+    19. Gallery
+    20. Contact Data
+    21. Google Map
+    22. Popup Forms
+   ------------------------------------------------
+   Table of Contents End
+   ------------------------------------------------ */
+
+// Import Bourbon
+@import "bourbon"
+
+// Import Mixins and Common Variables
+@import "../partials/layout"
+@import "../partials/mixins"
+@import "../partials/variables"
+
+// Color Variables
+// Main Colors
+$base-color: #4d3a8f
+$accent-color: #40e1e8
+$white: #ffffff
+// Text Colors
+$txt-black: #262626
+$txt-dark: #303030
+$txt-medium: #616161
+$txt-light: #aaa
+$txt-muted: #d8d8d8
+$txt-white: #ffffff
+$txt-white-transparent: rgba(#ffffff, .6)
+
+// Backgrounds
+$bg-black-transparent: rgba(0,0,0,.4)
+
+/* ------------------------------------------------*/
+/* Base Colors Start
+/* ------------------------------------------------*/
+::selection
+  background-color: $base-color
+  color: $accent-color
+  text-shadow: none
+
+html
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+
+body
+  background-color: shade($base-color, 40%)
+  color: $txt-medium
+
+a
+  color: $txt-dark
+/* ------------------------------------------------*/
+/* Base Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Typography Colors Start
+/* ------------------------------------------------*/
+h1
+  color: $txt-black
+  span
+    color: $accent-color
+  &.light-text
+    color: $txt-white
+
+h2
+  color: $txt-black
+
+h3
+  color: $txt-black
+  small
+    color: $txt-light
+
+h4
+  color: $txt-dark
+  small
+    color: $txt-dark
+
+.section-title
+  span
+    color: $txt-black
+    em
+      color: $txt-black
+  p
+    color: $txt-dark
+
+p
+  color: $txt-dark
+
+.contact-data__item
+  .material-icons
+    color: $base-color
+  p
+    color: $txt-medium
+  a
+    color: $txt-medium
+    &::before
+      background-color: $bsc-grey-dark
+    .no-touch &:hover
+      color: $txt-dark
+
+strong
+  color: $txt-dark
+
+.txt-light
+  color: $txt-white
+.txt-light-transparent
+  color: $txt-white-transparent
+.txt-accent-color
+  color: $accent-color
+/* ------------------------------------------------*/
+/* Typography Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Buttons & Triggers Colors Start
+/* ------------------------------------------------*/
+.button-dark
+  color: $txt-white
+  background-color: $base-color
+  box-shadow: none
+  &::before,
+  &::after
+    background-color: $bsc-white
+  .no-touch &:hover
+    color: $txt-white
+    background-color: $base-color
+
+.button-dark-outline
+  border: 2px solid $txt-dark
+  color: $txt-dark
+  &::before,
+  &::after
+    background-color: $txt-dark
+  .no-touch &:hover
+    color: $txt-dark
+
+.button-light
+  color: $txt-dark
+  background-color: $bsc-white
+  &::before,
+  &::after
+    background-color: $base-color
+  .no-touch &:hover
+    color: $txt-dark
+    background-color: $bsc-white
+
+.button-light-outline
+  background-color: transparent
+  border: 2px solid $bsc-white
+  color: $txt-white
+  &::before,
+  &::after
+    background-color: $bsc-white
+  .no-touch &:hover
+    color: $txt-white
+
+.section-close
+  color: $base-color
+  border: 2px solid $base-color
+  &.light
+    color: rgba($txt-white, .6)
+    border: 2px solid rgba($txt-white, .3)
+  .no-touch &:hover
+    color: $base-color
+    &.light
+      color: rgba($txt-white, .6)
+/* ------------------------------------------------*/
+/* Buttons & Triggers Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Forms & Form Reply Groups Colors Start
+/* ------------------------------------------------*/
+.form-dark
+  ::-webkit-input-placeholder
+    color: $txt-dark
+  :-moz-placeholder
+    color: $txt-dark
+  ::-moz-placeholder
+    color: $txt-dark
+  :-ms-input-placeholder
+    color: $txt-dark
+  input:focus:required:invalid,
+  textarea:focus:required:invalid
+    color: $txt-dark
+  input:required:valid,
+  textarea:required:valid
+    color: $txt-dark
+  input, textarea
+    border-bottom: 1px solid $txt-dark
+    color: $txt-dark
+    &:focus
+      border-bottom: 1px solid $accent-color
+  .inputs-description
+    color: $txt-light
+
+.form-light
+  ::-webkit-input-placeholder
+    color: rgba($txt-white, .6)
+  :-moz-placeholder
+    color: rgba($txt-white, .6)
+  ::-moz-placeholder
+    color: rgba($txt-white, .6)
+  :-ms-input-placeholder
+    color: rgba($txt-white, .6)
+  input:focus:required:invalid,
+  textarea:focus:required:invalid
+    color: $txt-white
+  input:required:valid,
+  textarea:required:valid
+    color: $txt-white
+  input, textarea
+    border-bottom: 1px solid $white
+    color: $txt-muted
+    &:focus
+      border-bottom: 1px solid $accent-color
+  .inputs-description
+    color: rgba($txt-white, .6)
+/* ------------------------------------------------*/
+/* Forms & Form Reply Groups Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Main Section Colors Start
+/* ------------------------------------------------*/
+.main
+  background-color: $base-color
+
+.main__intro
+  background-color: $base-color
+  &::before
+    background-color: shade($base-color, 20%)
+
+.intro__content
+  background-color: $base-color
+
+.main__media
+  &::before
+    background-color: shade($base-color, 20%)
+/* ------------------------------------------------*/
+/* Main Section Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Menu Colors Start
+/* ------------------------------------------------*/
+.intro__menu
+  ul
+    li
+      &::after
+        background: $accent-color
+      .no-touch &:hover
+        a
+          color: $txt-white
+      a
+        color: $txt-white
+/* ------------------------------------------------*/
+/* Menu Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Socials Colors Start
+/* ------------------------------------------------*/
+.intro__socials
+  ul
+    li
+      a
+        color: $txt-white
+      .no-touch &:hover
+        a
+          color: $accent-color
+/* ------------------------------------------------*/
+/* Socials Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Countdown Colors Start
+/* ------------------------------------------------*/
+.media__countdown
+  #countdown
+    color: $txt-white
+  .help-text
+    color: $txt-white
+/* ------------------------------------------------*/
+/* Countdown Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Content Sections Colors Start
+/* ------------------------------------------------*/
+.scroll
+  background-color: $bsc-white
+
+.blocks
+  background-color: $bsc-white
+/* ------------------------------------------------*/
+/* Content Sections Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Custom Scroll Colors Start
+/* ------------------------------------------------*/
+.mCSB_draggerContainer
+  background: $accent-color
+
+.mCSB_scrollTools .mCSB_draggerRail
+  background-color: tint($accent-color, 10%)
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar
+  background-color: $base-color
+
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar
+  background-color: $base-color
+
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar
+  background-color: $base-color
+/* ------------------------------------------------*/
+/* Custom Scroll Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Blockquote Colors Start
+/* ------------------------------------------------*/
+.blockquote__content
+  blockquote
+    p
+      color: $txt-dark
+    cite
+      color: $txt-medium
+
+.blockquote__icon
+  color: rgba($txt-dark, .1)
+/* ------------------------------------------------*/
+/* Blockquote Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Team Colors Start
+/* ------------------------------------------------*/
+.team__socials
+  li
+    a
+      color: $txt-light
+    .no-touch &:hover
+      a
+        color: $accent-color
+/* ------------------------------------------------*/
+/* Team Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Gallery Colors Start
+/* ------------------------------------------------*/
+.my-gallery__item
+  &::after
+    background-color: $bsc-white
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 50%,rgba(255,255,255,0.6) 100%)
+  &:nth-of-type(2)
+    &::after
+      background-color: $accent-color
+      background: linear-gradient(to bottom, rgba($accent-color,0) 0%,rgba($accent-color,0) 50%,rgba($accent-color,0.6) 100%)
+  &:nth-of-type(3)
+    &::after
+      background-color: $base-color
+      background: linear-gradient(to bottom, rgba($base-color,0) 0%,rgba($base-color,0) 50%,rgba($base-color,0.6) 100%)
+  figcaption
+    h4
+      color: $txt-dark
+      small
+        color: $txt-dark
+  &:nth-of-type(2), &:nth-of-type(3)
+    figcaption
+      h4
+        color: $txt-white
+        small
+          color: rgba($txt-white, .8)
+  +MQ(XL)
+    &::after
+      background-color: $bsc-white
+    &:nth-of-type(2)
+      &::after
+        background-color: $accent-color
+    &:nth-of-type(3)
+      &::after
+        background-color: $base-color
+
+.pswp__caption__center
+  h4
+    color: $txt-white
+    small
+      color: rgba($txt-white, .8)
+  p
+    color: rgba($txt-white, .6)
+
+.pswp__bg
+  background: shade($base-color, 70%)
+
+.pswp__caption, .pswp__top-bar
+  background-color: rgba(0,0,0,.3)
+
+.pswp__button--close
+  background-color: $accent-color
+/* ------------------------------------------------*/
+/* Gallery Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Contact Data Colors Start
+/* ------------------------------------------------*/
+.contact-data__item
+  .material-icons
+    color: $base-color
+  p
+    color: $txt-medium
+  a
+    color: $txt-medium
+    &::before
+      background-color: $bsc-grey-dark
+    .no-touch &:hover
+      color: $txt-dark
+/* ------------------------------------------------*/
+/* Contact Data Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Google Map Colors Start
+/* ------------------------------------------------*/
+#zoom-in, #zoom-out
+  background-color: rgba($txt-white, .4)
+  color: $base-color
+  border: 2px solid $base-color
+/* ------------------------------------------------*/
+/* Google Map Colors End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Popup Forms Colors Start
+/* ------------------------------------------------*/
+.notify
+  background-color: $bsc-white
+  .popup__title
+    .title
+      color: $txt-black
+  .popup__content
+    background-color: $white
+
+.writealine
+  background-color: $base-color
+/* ------------------------------------------------*/
+/* Popup Forms Colors End
+/* ------------------------------------------------*/

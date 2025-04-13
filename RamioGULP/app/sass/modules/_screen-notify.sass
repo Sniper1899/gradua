@@ -1,0 +1,47 @@
+.notify
+  +position(fixed, 0 0 null null)
+  width: 100%
+  height: 100%
+  overflow-y: auto
+  z-index: 10
+  padding: 0
+  background-color: #24262b
+  opacity: 1
+  transform: translateZ(0)
+  transform: translateX(100%) translateY(0)
+  transition: transform $animation-duration - .2s ease-in-out
+  &.is-visible
+    transform: translateX(0) translateY(0)
+  +MQ(XL)
+    +position(fixed, 0 auto null 0)
+    width: 50%
+    transform: translateX(0) translateY(100%)
+    &.is-visible
+      transform: translateX(0) translateY(0)
+
+.popup__controls
+  padding: 4rem 10% 0 10%
+  +MQ(XL)
+    padding: 4rem 6.4rem 0 6.4rem
+  +MQ(XXL)
+    padding: 4.8rem 8rem 0 8rem
+
+.popup__content
+  position: relative
+  width: 100%
+
+.popup__content
+  +MQ(XL)
+    position: absolute
+    +center(y)
+
+.popup__title
+  padding: 4.8rem 10% 2.4rem 10%
+  .title
+    font: normal 700 2.4rem/1.2 $default-font
+    text-transform: uppercase
+    margin-bottom: 1.6rem
+  +MQ(XL)
+    padding: 4.8rem 6.4rem 2.4rem 6.4rem
+  +MQ(XXL)
+    padding: 4.8rem 8rem 2.4rem 8rem

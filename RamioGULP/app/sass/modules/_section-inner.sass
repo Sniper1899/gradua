@@ -1,0 +1,172 @@
+.inner
+  position: relative
+  width: 100%
+  background-color: transparent
+  +MQ(XL)
+    +position(absolute, 0 null null 0)
+    width: 100%
+    height: 100%
+    overflow: hidden
+    z-index: 3
+
+.about
+  .about__info, .about__photo
+    transform: translateY(0)
+  &.is-visible,
+  &.is-hidden
+    .about__info, .about__photo
+      transform: translateY(0)
+  +MQ(XL)
+    .about__info
+      transform: translateY(100%)
+      transition: transform $animation-duration - .2s 0s ease-in-out
+    .about__photo
+      transform: translateY(-100%)
+      transition: transform $animation-duration - .2s 0s ease-in-out
+    &.is-visible
+      z-index: 10
+      .about__info
+        transform: translateY(0)
+      .about__photo
+        transform: translateY(0)
+    &.is-hidden
+      .about__info
+        transform: translateY(100%)
+      .about__photo
+        transform: translateY(-100%)
+
+.works
+  .works__gallery, .works__info
+    transform: translateY(0)
+  &.is-visible,
+  &.is-hidden
+    .works__gallery, .works__info
+      transform: translateY(0)
+  +MQ(XL)
+    .works__gallery
+      transform: translateY(-100%)
+      transition: transform $animation-duration - .2s 0s ease-in-out
+    .works__info
+      transform: translateY(100%)
+      transition: transform $animation-duration - .2s 0s ease-in-out
+    &.is-visible
+      z-index: 10
+      .works__gallery
+        transform: translateY(0)
+      .works__info
+        transform: translateY(0)
+    &.is-hidden
+      .works__gallery
+        transform: translateY(-100%)
+      .works__info
+        transform: translateY(100%)
+
+.contact
+  .contact__info, .contact__map
+    transform: translateY(0)
+  &.is-visible,
+  &.is-hidden
+    .contact__info, .contact__map
+      transform: translateY(0)
+  &.writealine-is-visible
+    .contact__info
+  +MQ(XL)
+    .contact__info
+      z-index: 2
+      transform: translateY(100%)
+      transition: transform $animation-duration - .2s 0s ease-in-out
+    .contact__map
+      z-index: 1
+      transform: translateY(-100%)
+      transition: transform $animation-duration - .2s 0s ease-in-out
+    &.is-visible
+      z-index: 10
+      .contact__info
+        transform: translateY(0)
+      .contact__map
+        transform: translateY(0)
+    &.is-hidden
+      .contact__info
+        transform: translateY(100%)
+      .contact__map
+        transform: translateY(-100%)
+    &.popup-is-visible
+      .contact__info
+        transform: translateY(-100%)
+
+.scroll
+  position: relative
+  transform: translateZ(0)
+  backface-visibility: hidden
+  background-color: $bsc-white
+  &::after
+    display: none
+    content: ""
+  +MQ(XL)
+    height: 100%
+    overflow-y: auto
+    &::after
+      content: "custom-scrollbar"
+
+.static
+  margin: 0
+  padding: 0
+  position: relative
+  +MQ(XL)
+    position: relative
+    height: 100%
+
+.blocks
+  position: relative
+  padding: 6.4rem 0 6.4rem 0
+  background-color: $bsc-white
+  &.no-padding-bottom
+    padding-bottom: 0
+  +MQ(M)
+    padding: 8rem 0 6.4rem 0
+  +MQ(XL)
+    padding: 6.4rem 0 8rem 0
+
+.blocks__single
+  position: relative
+  width: 100%
+  margin-bottom: 6.4rem
+  padding: 0 10%
+  &:last-of-type
+    margin-bottom: 0
+  &.no-padding
+    padding: 0
+  &.no-margin
+    margin-bottom: 0
+  +MQ(XL)
+    padding: 0 6.4rem
+  +MQ(XXL)
+    padding: 0 8rem
+
+.section-controls
+  display: none
+  +MQ(XL)
+    display: block
+    overflow: hidden
+    margin-bottom: 4.8rem
+    padding: 0 6.4rem
+  +MQ(XXL)
+    padding: 0 8rem
+
+.contact-buttons
+  position: relative
+  padding: 0 10%
+  +MQ(XL)
+    padding: 0 6.4rem
+  +MQ(XXL)
+    padding: 0 8rem
+
+.about__photo
+  height: 600px
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: cover
+  +MQ(M)
+    height: 760px
+  +MQ(XL)
+    height: 100%

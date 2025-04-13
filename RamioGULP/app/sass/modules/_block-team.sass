@@ -1,0 +1,45 @@
+.team
+  position: relative
+
+.team__item
+  position: relative
+  margin-bottom: 4.8rem
+  &:last-of-type
+    margin-bottom: 0
+  img
+    display: block
+  h3
+    margin-top: 2.4rem
+    margin-bottom: 1.6rem
+    small
+      margin-bottom: 0
+  +MQ(S)
+    margin-bottom: 0
+
+.team__socials
+  display: block
+  margin: 0
+  padding: 0
+  margin-top: 1rem
+  li
+    display: inline-block
+    margin: 0 1.6rem 0 0
+    padding: 0
+    &:last-of-type
+      margin: 0
+    a
+      display: block
+      position: relative
+      height: 2.4rem
+      font: normal 400 1.4rem/2.4rem $default-font
+      color: $txt-light
+      transition: color .3s ease-in-out
+      i
+        line-height: 0
+  +MQ(M)
+    margin-top: 1.6rem
+  +MQ(L)
+    li
+      .no-touch &:hover
+        a
+          color: $txt-dark

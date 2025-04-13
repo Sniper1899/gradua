@@ -1,0 +1,803 @@
+/*! ------------------------------------------------
+   Project Name: Ramio - Clean Coming Soon and Landing Page Template
+   Project Description: Ramio - awesome coming soon template to kick-start your project
+   Tags: Ramio, coming soon, under construction, template, coming soon page, html5, css3
+   Version: 2.0.3
+   Build Date: April 2018
+   Last Update: December 2024
+   This product is available exclusively on Themeforest
+   Author: mix_design
+   Author URI: https://themeforest.net/user/mix_design
+   File name: main-demo.css
+   ------------------------------------------------
+
+   ------------------------------------------------
+   Table of Contents
+   ------------------------------------------------
+    1. Loader
+    4. Loading Animation
+    5. Fonts
+    6. Base CSS Styles
+    7. Typography
+    8. Buttons & Triggers
+    9. Intro
+    10. Preview Sections
+    11. Footer
+   ------------------------------------------------
+   Table of Contents End
+   ------------------------------------------------ */
+
+// Import Bourbon
+@import "bourbon"
+
+// Import Libs, Mixins and Variables
+@import "partials/layout"
+@import "partials/mixins"
+@import "partials/variables"
+
+// Demo Mixins and Variables
+// Colors main
+$base-color: #f3414d
+$accent-color: #95bce4
+// Colors additional
+$bluegem: #4d3a8f
+$turquoise: #40e1e8
+$radicalred: #f3414d
+$cornflower: #95bce4
+$jacksonspurple: #333b8f
+$bittersweet: #fd625e
+$white: #ffffff
+$black: #121212
+$mint: #38f6b4
+$smokyblack: #0c0c0c
+
+/* ------------------------------------------------*/
+/* Loader Styles Start
+/* ------------------------------------------------*/
+.loader
+  +position(fixed, 0 0 0 0)
+  z-index: 1000
+  background-color: shade($bsc-grey-dark, 40%)
+  opacity: 1
+  visibility: visible
+  transition: visibility $animation-duration - .4s .0s, opacity $animation-duration - .4s, background-color $animation-duration - .2s ease-in-out
+  &.loaded
+    opacity: 0
+    visibility: hidden
+
+.loader-content
+  position: absolute
+  +center
+
+.loader-logo
+  position: relative
+  display: block
+  margin: 0 auto 16px
+  overflow: hidden
+  img
+    display: block
+    width: auto
+    height: auto
+    z-index: 0
+
+.loader-caption
+  margin: 0 auto
+  text-align: center
+
+.loading-dots
+  position: relative
+  line-height: 1
+  display: inline-block
+  width: 36px
+  height: 10px
+  text-align: center
+  +clearfix
+  overflow: hidden
+  .dot
+    display: block
+    float: left
+    width: 6px
+    height: 6px
+    margin: 2px 3px 0 3px
+    background: #fff
+    opacity: 0
+    border-radius: 50%
+    animation: fade 1s infinite
+    &:nth-of-type(1)
+      animation-delay: 0s
+    &:nth-of-type(2)
+      animation-delay: .1s
+    &:nth-of-type(3)
+      animation-delay: .2s
+
+@keyframes fade
+  0%
+    opacity: 0
+  50%
+    opacity: 0.8
+  100%
+    opacity: 0
+
+@keyframes slideInDown
+  from
+    transform: translate3d(0, -100%, 0)
+    visibility: visible
+  to
+    transform: translate3d(0, 0, 0)
+
+.slideInDown
+  animation: $animation-duration - .2s 1 both slideInDown
+
+@keyframes slideInUp
+  from
+    transform: translate3d(0, 100%, 0)
+    visibility: visible
+  to
+    transform: translate3d(0, 0, 0)
+
+.slideInUp
+  animation: $animation-duration - .2s 1 both slideInUp
+
+@keyframes fadeOutUp
+  from
+    opacity: 1
+  to
+    opacity: 0
+    transform: translate3d(0, -100%, 0)
+
+.fadeOutUp
+  animation: $animation-duration - .2s 1 both fadeOutUp
+
+@keyframes fadeOutDown
+  from
+    opacity: 1
+  to
+    opacity: 0
+    transform: translate3d(0, 100%, 0)
+
+.fadeOutDown
+  animation: $animation-duration - .2s 1 both fadeOutDown
+/* ------------------------------------------------*/
+/* Loader Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Loading Animation Styles Start
+/* ------------------------------------------------*/
+body
+  &.loaded
+    // 1-st Items Loading
+    .headline
+      animation: .5s ease-in-out 1 both slideInUp
+
+    // 2-nd Items Loading
+    .intro__header
+      .header__logo,
+      .header__buttons
+        animation: .5s ease-in-out .1s 1 both fadeIn
+
+    // 3-rd Items loading
+    .intro__illusrations
+      .illustration-1
+        animation: .3s ease-in-out .3s 1 both fadeIn
+      .illustration-2
+        animation: .3s ease-in-out .4s 1 both slideInUp
+      .illustration-3
+        animation: .3s ease-in-out .5s 1 both slideInUp
+      .illustration-4
+        animation: .3s ease-in-out .6s 1 both slideInUp
+      .illustration-5
+        animation: .3s ease-in-out .7s 1 both slideInUp
+/* ------------------------------------------------*/
+/* Loading Animation Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Fonts Start
+/* ------------------------------------------------*/
+/* Poppins Font */
++font-face("Poppins", "../fonts/Poppins-Light/Poppins-Light", 300, $file-formats: eot woff ttf)
++font-face("Poppins", "../fonts/Poppins-Regular/Poppins-Regular", 400, $file-formats: eot woff ttf)
++font-face("Poppins", "../fonts/Poppins-Medium/Poppins-Medium", 500, $file-formats: eot woff ttf)
++font-face("Poppins", "../fonts/Poppins-Bold/Poppins-Bold", 700, $file-formats: eot woff ttf)
++font-face("Poppins", "../fonts/Poppins-ExtraBold/Poppins-ExtraBold", 800, $file-formats: eot woff ttf)
+
+/* Libre Baskerville Italic Font */
++font-face("LibreBaskerville", "../fonts/LibreBaskerville-Italic/LibreBaskerville-Italic", 400, $file-formats: eot woff ttf)
+/* ------------------------------------------------*/
+/* Fonts End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Base CSS Styles Start
+/* ------------------------------------------------*/
+*, *::before, *::after
+  box-sizing: border-box
+
+button:active, button:focus
+  outline: none !important
+
+button::-moz-focus-inner
+  border: 0 !important
+
+input::-moz-focus-inner
+  border: 0 !important
+
+*:focus
+  outline: none
+  box-shadow: none
+
+*:active
+  outline: none
+  box-shadow: none
+
+::-moz-focus-inner
+  border: 0
+
+::selection
+  background-color: $base-color
+  color: #ffffff
+  text-shadow: none
+
+html
+  font-family: sans-serif
+  font-size: 62.5%
+  +font-smoothing
+
+html,
+body
+  +MQ(XL)
+    width: 100%
+    height: 100%
+
+body
+  min-width: 320px
+  position: relative
+  overflow-x: hidden
+  font: normal 400 1.6rem/1.7 $default-font
+  background-color: #efefef
+  color: $txt-medium
+
+section
+  position: relative
+  width: 100%
+
+a
+  text-decoration: none
+  outline: none
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  color: $txt-dark
+
+button:focus
+  outline: none !important
+  box-shadow: none !important
+
+img
+  display: block
+  width: 100%
+  height: auto
+
+.no-padding
+  padding: 0
+
+.overflow-hidden
+  overflow: hidden
+/* ------------------------------------------------*/
+/* Base CSS Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Typography Styles Start
+/* ------------------------------------------------*/
+h1
+  font: normal 700 3rem/1.2 $default-font
+  color: #121212
+  span
+    color: $base-color
+  +MQ(M)
+    font-size: 3.6rem
+  +MQ(XXL)
+    font-size: 4.8rem
+
+p
+  padding: 0
+  margin: 0
+  font: normal 400 1.5rem/1.7 $default-font
+  color: $txt-dark
+
+.headline__title
+  font: normal 700 3rem/1 $default-font
+  color: $txt-black
+  +MQ(L)
+    font-size: 3.6rem
+  +MQ(XXL)
+    font-size: 4.8rem
+
+.headline__subtitle
+  font: normal 300 1.6rem/1.7 $default-font
+  +MQ(XXL)
+    font-size: 1.9rem
+
+.item__caption
+  p
+    font: normal 700 1.6rem/1.1 $default-font
+    color: $txt-black
+  +MQ(M)
+    p
+      margin-top: 2.4rem
+  +MQ(XL)
+    p
+      font-size: 1.8rem
+/* ------------------------------------------------*/
+/* Typography Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Buttons & Triggers Styles Start
+/* ------------------------------------------------*/
+@import "modules/elements-buttons"
+
+.section-close
+  position: relative
+  display: inline-block
+  width: 5rem
+  height: 5rem
+  line-height: 5.4rem
+  font-size: 2.6rem
+  color: $txt-dark
+  text-align: center
+  border: 2px solid $txt-dark
+  .material-icons
+    font-size: 2.6rem
+  &.light
+    color: rgba($txt-white, .6)
+    border: 2px solid rgba($txt-white, .3)
+  .no-touch &:hover
+    color: $txt-dark
+    &.light
+      color: rgba($txt-white, .6)
+
+.to-top-button
+  display: inline-block
+  +position(fixed, null 20px 20px null)
+  width: 4.6rem
+  height: 4.6rem
+  line-height: 4.8rem
+  font-size: 2.6rem
+  color: $txt-dark
+  text-align: center
+  background-color: rgba(#ffffff, .3)
+  border: 2px solid $txt-dark
+  z-index: 3
+  visibility: hidden
+  opacity: 0
+  transition: opacity $animation-delay 0s, visibility 0s $animation-delay
+  &:focus,
+  &:active
+    color: $txt-dark
+  &.is-visible, &.fade-out
+    transition: opacity $animation-delay 0s, visibility 0s 0s
+  .no-touch &
+    &:hover
+      transition: opacity $animation-delay 0s, visibility 0s 0s
+      opacity: 1
+      color: $txt-dark
+  &.is-visible
+    visibility: visible
+    opacity: 1
+  &.fade-out
+    opacity: 1
+  .material-icons
+    font-size: 2.6rem
+  +MQ(M)
+    +position(fixed, null 20px 20px null)
+  +MQ(XL)
+    &.fade-out
+      opacity: 0.5
+/* ------------------------------------------------*/
+/* Buttons & Triggers Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Intro Styles Start
+/* ------------------------------------------------*/
+.demo__intro
+  min-height: 480px
+  text-align: center
+  background-color: #efefef
+  background-image: url('../img/demo/bg-1.webp')
+  background-position: -80px 100px
+  background-repeat: no-repeat
+  background-size: 800px
+  +MQ(M)
+    background-position: center 200px
+    padding-bottom: 160px
+    background-size: 100%
+  +MQ(L)
+    background-position: center 150px
+    padding-bottom: 230px
+    background-size: 90%
+  +MQ(XL)
+    background-position: center 110px
+    background-size: 84%
+  +MQ(XXL)
+    background-position: center 162px
+    padding-bottom: 400px
+    background-size: auto
+
+.intro__header
+  position: relative
+  padding: 40px 10% 0 10%
+  z-index: 1
+  +MQ(XL)
+    padding: 48px 100px 0 100px
+  +MQ(XXL)
+    padding: 80px 140px 0 140px
+
+.header__logo
+  margin-bottom: 24px
+  img
+    width: auto
+    margin: 0 auto
+  +MQ(M)
+    margin-bottom: 0
+    img
+      width: 150px
+      height: auto
+      margin: 0
+  +MQ(XXL)
+    img
+      width: 188px
+      height: auto
+
+.header__buttons
+  text-align: center
+  +MQ(M)
+    text-align: right
+    padding-top: 10px
+  +MQ(XXL)
+    padding-top: 20px
+
+.intro__content
+  position: relative
+  .headline
+    padding: 100px 10%
+  +MQ(M)
+    .headline
+      padding: 120px 10%
+  +MQ(XL)
+    .headline
+      padding: 92px 100px
+      h1
+        max-width: 600px
+        margin: 0 auto
+  +MQ(XXL)
+    .headline
+      padding: 120px 140px
+      h1
+        max-width: 700px
+        margin: 0 auto
+
+.intro__illusrations
+  +position(absolute, null null -180px 0)
+  width: 100%
+  height: 227px
+  overflow: hidden
+  z-index: 10
+  +MQ(M)
+    bottom: -230px
+    height: 497px
+  +MQ(L)
+    bottom: -354px
+    height: 671px
+  +MQ(XXL)
+    bottom: -450px
+    height: 941px
+
+.illustration-1, .illustration-2, .illustration-3, .illustration-4, .illustration-5
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+
+.illustration-2, .illustration-3, .illustration-4, .illustration-5
+  display: none
+  +MQ(XL)
+    display: block
+
+.illustration-1
+  position: absolute
+  +center(x)
+  bottom: 0
+  width: 320px
+  height: 227px
+  background-image: url('../img/demo/bg-3.webp')
+  z-index: 1
+  +MQ(M)
+    width: 700px
+    height: 497px
+  +MQ(L)
+    width: 946px
+    height: 671px
+  +MQ(XXL)
+    width: 1326px
+    height: 941px
+
+.illustration-2
+  +position(absolute, 200px null null 66px)
+  width: 516px
+  height: 290px
+  background-image: url('../img/demo/bg-4.webp')
+  box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2)
+  +MQ(XL)
+    +position(absolute, 140px null null 48px)
+    width: 360px
+    height: 202px
+  +MQ(XXL)
+    +position(absolute, 200px null null 66px)
+    width: 516px
+    height: 290px
+
+.illustration-3
+  +position(absolute, 414px null null 118px)
+  width: 300px
+  height: 225px
+  background-image: url('../img/demo/bg-5.webp')
+  box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2)
+  +MQ(XL)
+    +position(absolute, 290px null null 86px)
+    width: 208px
+    height: 156px
+  +MQ(XXL)
+    +position(absolute, 414px null null 118px)
+    width: 300px
+    height: 225px
+
+.illustration-4
+  +position(absolute, 240px 60px null null)
+  width: 516px
+  height: 290px
+  background-image: url('../img/demo/bg-7.webp')
+  box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2)
+  +MQ(XL)
+    +position(absolute, 170px 50px null null)
+    width: 360px
+    height: 202px
+  +MQ(XXL)
+    width: 516px
+    height: 290px
+
+.illustration-5
+  +position(absolute, 420px -120px null null)
+  width: 516px
+  height: 290px
+  background-image: url('../img/demo/bg-6.webp')
+  box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2)
+  +MQ(XL)
+    +position(absolute, 280px -80px null null)
+    width: 360px
+    height: 202px
+  +MQ(XXL)
+    +position(absolute, 400px -120px null null)
+    width: 516px
+    height: 290px
+/* ------------------------------------------------*/
+/* Intro Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Preview Sections Styles Start
+/* ------------------------------------------------*/
+.demo__examples
+  background-color: #f9f9f9
+  padding: 5.6rem 0 0 0
+  color: #444
+  &.first-section
+    padding-top: 250px
+    background-image: url('../img/demo/bg-2-s.webp')
+    background-position: 0 0
+    background-repeat: repeat-x
+  +MQ(M)
+    padding: 5.6rem 0 2.4rem 0
+    &.first-section
+      padding-top: 280px
+  +MQ(L)
+    &.first-section
+      padding-top: 430px
+      background-image: url('../img/demo/bg-2.webp')
+  +MQ(XXL)
+    &.first-section
+      padding-top: 480px
+
+.examples__headline
+  width: 100%
+  padding: 0 10%
+  text-align: center
+  margin-bottom: 4.8rem
+  +MQ(M)
+    margin-bottom: 5.6rem
+  +MQ(XL)
+    padding: 0 100px
+    margin-bottom: 7.2rem
+  +MQ(XXL)
+    padding: 0 140px
+
+.headline__title
+  margin-bottom: 1.6rem
+  +MQ(L)
+    margin-bottom: 2rem
+  +MQ(XXL)
+    margin-bottom: 2.6rem
+
+.headline__subtitle
+  max-width: 800px
+  margin: 0 auto 2.4rem
+  +MQ(L)
+    max-width: 680px
+  +MQ(XXL)
+    max-width: 800px
+
+.headline__colors
+  margin: 0 auto
+  & > div
+    display: inline-block
+    width: 50px
+    height: 50px
+    border-radius: 50%
+  +MQ(M)
+    & > div
+      width: 72px
+      height: 72px
+
+.colors__base
+  margin-right: -34px
+  +MQ(M)
+    margin-right: -48px
+
+.colors__accent
+
+.bluegem
+  background-color: $bluegem
+.turquoise
+  background-color: $turquoise
+.radicalred
+  background-color: $radicalred
+.cornflower
+  background-color: $cornflower
+.jacksonspurple
+  background-color: $jacksonspurple
+.bittersweet
+  background-color: $bittersweet
+.white
+  background-color: $white
+.black
+  background-color: $black
+.mint
+  background-color: $mint
+.smokyblack
+  background-color: $smokyblack
+
+.examples__links
+  position: relative
+  width: 100%
+  padding: 0 10%
+  +MQ(XL)
+    padding: 0 100px
+  +MQ(XXL)
+    padding: 0 140px
+
+.links__item
+  position: relative
+  a
+    display: block
+    .no-touch &:hover
+      .item__image
+        transform: translateY(-1.6rem)
+        box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2)
+      .new-item
+        &::before
+          top: -14px
+          box-shadow: 0 8px 17px 2px rgba(0,0,0,0.1), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.14)
+  +MQ(M)
+    &.figure-left
+      padding-right: 1.3rem
+    &.figure-right
+      padding-left: 1.3rem
+  +MQ(XXL)
+    &.figure-left
+      padding-right: 2.1rem
+    &.figure-right
+      padding-left: 2.1rem
+
+.new-item
+  &::before
+    content: 'NEW'
+    +position(absolute, -10px -10px null null)
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    background-color: #f31247
+    color: $txt-white
+    font: normal 600 1.2rem/51px $default-font
+    letter-spacing: 0.06rem
+    text-transform: uppercase
+    text-align: center
+    z-index: 12
+    transition: all .3s ease-in-out
+
+.item__image
+  position: relative
+  width: 100%
+  box-shadow: 0 8px 17px 2px rgba(0,0,0,0.06), 0 3px 14px 2px rgba(0,0,0,0.08), 0 5px 5px -3px rgba(0,0,0,0.1)
+  transform: translateY(0)
+  transition: all .5s cubic-bezier(0, 1.04, 0.68, 1.04)
+
+.item__caption
+  display: block
+  text-align: center
+  margin-bottom: 4.8rem
+  p
+    margin-top: 1.6rem
+  +MQ(M)
+    margin-bottom: 5.6rem
+    p
+      margin-top: 2.4rem
+  +MQ(XL)
+    margin-bottom: 7.2rem
+    p
+      margin-top: 3rem
+/* ------------------------------------------------*/
+/* Preview Sections Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Footer Styles Start
+/* ------------------------------------------------*/
+.demo__footer
+  background-color: #efefef
+  position: relative
+  padding: 12rem 10% 4.8rem 10%
+  background-image: url('../img/demo/footer-bg-s.webp')
+  background-position: center 0
+  background-repeat: repeat-x
+  p
+    position: relative
+    font: normal 700 2rem/1.2 $default-font
+    color: #121212
+    text-align: center
+  .material-icons,
+  a
+    color: $base-color
+  .material-icons
+    display: inline-block
+    font-size: 2.4rem
+    vertical-align: middle
+  +MQ(L)
+    padding: 14rem 10% 7.2rem 10%
+    background-image: url('../img/demo/footer-bg.webp')
+  +MQ(XL)
+    p
+      font-size: 2.8rem
+/* ------------------------------------------------*/
+/* Footer Styles End
+/* ------------------------------------------------*/
+
+/* ------------------------------------------------*/
+/* Animations Start
+/* ------------------------------------------------*/
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+@keyframes slideInUp
+  from
+    transform: translate3d(0, 50px, 0)
+    opacity: 0
+    visibility: visible
+  to
+    transform: translate3d(0, 0, 0)
+    opacity: 1
+/* ------------------------------------------------*/
+/* Animations End
+/* ------------------------------------------------*/
